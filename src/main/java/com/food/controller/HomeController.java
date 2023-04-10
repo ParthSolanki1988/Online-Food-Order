@@ -25,6 +25,9 @@ public class HomeController {
         return "signup";
     }
 
+    @RequestMapping("/index")
+    public String index(){ return "index";}
+
     @RequestMapping(value = "/do_register",method = RequestMethod.POST)
     public String registerUser(
 
