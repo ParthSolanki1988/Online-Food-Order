@@ -15,7 +15,7 @@
     			<img src="/image/scooter.jpg">
     		</div>
     		<div class="login-content">
-    			<form action="/login" method="POST">
+    			<form action="/do_register" method="POST">
     				<img src="/image/avatar.svg">
     				<h2 class="title">Welcome</h2>
                		<div class="input-div one">

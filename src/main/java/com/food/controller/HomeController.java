@@ -9,6 +9,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import javax.servlet.http.HttpServletResponse;
+import java.io.IOException;
+
 
 @Controller
 public class HomeController {
@@ -29,22 +32,23 @@ public class HomeController {
     public String index(){ return "index";}
 
     @RequestMapping(value = "/do_register",method = RequestMethod.POST)
-    public String registerUser(
+    public void registerUser(
 
-            @RequestParam("username") String username,
-            @RequestParam("email") String email,
-            @RequestParam("name") String name,
-            @RequestParam("mobile") String mobile,
-            @RequestParam("password") String password
-            , Model model){
+        @RequestParam("username") String username,
+        @RequestParam("email") String email,
+        @RequestParam("name") String name,
+        @RequestParam("mobile") String mobile,
+        @RequestParam("password") String password
+            , Model model , HttpServletResponse response) throws Exception {
         User user= User.builder()
                 .username(username)
                 .email(email)
                 .name(name)
                 .mobile(mobile)
                 .password(password).build();
-        userRepository.save(user);
-        return "signup";
+//        userRepository.save(user);
+        response.sendRedirect("/login");
+//        return "signup";
     }
 
 

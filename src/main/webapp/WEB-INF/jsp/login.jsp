@@ -15,9 +15,19 @@
 			<img src="/image/scooter.jpg">
 		</div>
 		<div class="login-content">
-			<form action="/index" method="POST">
+			<form th:action="@{/signin}" action="#" method="POST">
+
+
 				<img src="/image/avatar.svg">
 				<h2 class="title">Welcome</h2>
+				<div th:if="${param.error}" class="alert alert-danger">
+                    Invalid username and password
+				</div>
+
+				<div th:if="${param.logout}" class="alert alert-danger">
+                    Invalid username and password
+                </div>
+
            		<div class="input-div one">
            		   <div class="i">
            		   		<i class="fas fa-user"></i>
